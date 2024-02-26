@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "concurrently -n ts,js -c red,green -i --default-input-target 1 \"tsc -w\" \"nodemon -w ./built-src built-src/app.js\"",
+    "start": "npm install && node built-src/app.js",
+    "tsc": "./node_modules/typescript/bin/tsc",
+    "build": "cd .. && yarn run cleanup && cd server && yarn run tsc",
+    "postinstall": "yarn run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "firebase-admin": "^10.2.0",
+    "fs": "^0.0.1-security",
+    "jvb": "file:..",
+    "nodemon": "^2.0.16",
+    "path": "^0.12.7",
+    "typescript": "~4.3.5"  
+  },
+  "devDependencies": {
+    "@types/long": "^4.0.2"
+  }
+}
